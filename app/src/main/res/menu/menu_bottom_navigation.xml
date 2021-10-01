@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/aboutMeFragment"
+        android:icon="@drawable/ic_menu_person"
+        android:title="@string/about_me" />
+    <item android:id="@+id/proExpFragment"
+        android:icon="@drawable/ic_menu_pro_exp"
+        android:title="@string/pro_exp"/>
+    <item android:id="@+id/graduationFragment"
+        android:icon="@drawable/ic_menu_graduation"
+        android:title="@string/graduation"/>
+
+</menu>
