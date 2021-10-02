@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.LanguageItemViewHolderBinding
 import com.thescreamer74.mycvandroid.model.PersonalUIModel
 
@@ -23,9 +24,11 @@ class LanguageItemAdapter (private val onClickListener: OnClickListener) : ListA
 
         fun showOrHideDesc() {
             if(binding.containerLangInfo.isVisible) {
+                binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_right)
                 TransitionManager.beginDelayedTransition(binding.containerLangInfo)
                 binding.containerLangInfo.visibility = View.GONE
             } else {
+                binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_down)
                 TransitionManager.beginDelayedTransition(binding.containerLangInfo)
                 binding.containerLangInfo.visibility = View.VISIBLE
             }

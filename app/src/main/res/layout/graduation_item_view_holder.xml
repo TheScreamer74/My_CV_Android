@@ -38,10 +38,20 @@
                 android:text="@{graduation.name}"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="@+id/icon_graduation_office"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/icon_graduation_office"
                 app:layout_constraintTop_toTopOf="@+id/icon_graduation_office"
                 tools:text="@tools:sample/full_names" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_right" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

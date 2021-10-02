@@ -32,11 +32,11 @@ class ExperienceItemAdapter(private val onClickListener: OnClickListener) : List
 
         fun showOrHideDesc() {
             if(binding.descExp.isVisible) {
-                binding.imageView.setImageResource(R.drawable.ic_arrow_down)
+                binding.imageView.setImageResource(R.drawable.ic_arrow_right)
                 TransitionManager.beginDelayedTransition(binding.containerDesc)
                 binding.descExp.visibility = View.GONE
             } else {
-                binding.imageView.setImageResource(R.drawable.ic_arrow_up)
+                binding.imageView.setImageResource(R.drawable.ic_arrow_down)
                 TransitionManager.beginDelayedTransition(binding.containerDesc)
                 binding.descExp.visibility = View.VISIBLE
             }

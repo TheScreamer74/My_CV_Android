@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.HobbiesItemViewHolderBinding
 import com.thescreamer74.mycvandroid.databinding.LanguageItemViewHolderBinding
 import com.thescreamer74.mycvandroid.model.PersonalUIModel
@@ -24,9 +25,11 @@ class HobbyItemAdapter (private val onClickListener: OnClickListener) : ListAdap
 
         fun showOrHideDesc() {
             if(binding.containerHobbyInfo.isVisible) {
+                binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_right)
                 TransitionManager.beginDelayedTransition(binding.containerHobbyInfo)
                 binding.containerHobbyInfo.visibility = View.GONE
             } else {
+                binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_down)
                 TransitionManager.beginDelayedTransition(binding.containerHobbyInfo)
                 binding.containerHobbyInfo.visibility = View.VISIBLE
             }

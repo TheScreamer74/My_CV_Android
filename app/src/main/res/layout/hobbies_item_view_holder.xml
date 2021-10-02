@@ -31,13 +31,15 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_arrow_down" />
+            app:srcCompat="@drawable/ic_arrow_right" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_hobby_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@id/img_arrow_develop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/hobby_name">
@@ -49,7 +51,7 @@
                 android:layout_marginStart="16dp"
                 android:gravity="center_vertical"
                 android:text="@{hobby.level}"
-                tools:text="@tools:sample/full_names"/>
+                tools:text="@tools:sample/full_names" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

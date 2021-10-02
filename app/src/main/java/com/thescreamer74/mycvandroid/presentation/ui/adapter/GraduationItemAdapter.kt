@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.GraduationItemViewHolderBinding
 import com.thescreamer74.mycvandroid.model.GraduationUIModel
 
@@ -30,11 +31,12 @@ class GraduationItemAdapter(private val onClickListener: OnClickListener) : List
         }
 
         fun showOrHideDesc() {
-
             if(binding.descGraduation.isVisible) {
+                binding.imageView.setImageResource(R.drawable.ic_arrow_right)
                 TransitionManager.beginDelayedTransition(binding.containerDesc)
                 binding.descGraduation.visibility = View.GONE
             } else {
+                binding.imageView.setImageResource(R.drawable.ic_arrow_down)
                 TransitionManager.beginDelayedTransition(binding.containerDesc)
                 binding.descGraduation.visibility = View.VISIBLE
             }
