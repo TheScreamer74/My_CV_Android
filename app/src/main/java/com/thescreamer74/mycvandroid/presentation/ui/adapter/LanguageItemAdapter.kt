@@ -1,6 +1,9 @@
 package com.thescreamer74.mycvandroid.presentation.ui.adapter
 
+import android.transition.Slide
+import android.transition.Transition
 import android.transition.TransitionManager
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,11 +28,10 @@ class LanguageItemAdapter (private val onClickListener: OnClickListener) : ListA
         fun showOrHideDesc() {
             if(binding.containerLangInfo.isVisible) {
                 binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_right)
-                TransitionManager.beginDelayedTransition(binding.containerLangInfo)
                 binding.containerLangInfo.visibility = View.GONE
             } else {
                 binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_down)
-                TransitionManager.beginDelayedTransition(binding.containerLangInfo)
+                TransitionManager.beginDelayedTransition(binding.containerLangInfo, Slide(Gravity.TOP) as Transition)
                 binding.containerLangInfo.visibility = View.VISIBLE
             }
         }

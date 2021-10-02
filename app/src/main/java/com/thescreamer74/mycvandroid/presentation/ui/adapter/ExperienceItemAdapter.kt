@@ -1,6 +1,7 @@
 package com.thescreamer74.mycvandroid.presentation.ui.adapter
 
 import android.transition.TransitionManager
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import android.transition.Slide
+import android.transition.Transition
 import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.ProExpItemViewHolderBinding
 import com.thescreamer74.mycvandroid.model.ExperienceUIModel
@@ -33,11 +36,11 @@ class ExperienceItemAdapter(private val onClickListener: OnClickListener) : List
         fun showOrHideDesc() {
             if(binding.descExp.isVisible) {
                 binding.imageView.setImageResource(R.drawable.ic_arrow_right)
-                TransitionManager.beginDelayedTransition(binding.containerDesc)
                 binding.descExp.visibility = View.GONE
+
             } else {
                 binding.imageView.setImageResource(R.drawable.ic_arrow_down)
-                TransitionManager.beginDelayedTransition(binding.containerDesc)
+                TransitionManager.beginDelayedTransition(binding.containerDesc, Slide(Gravity.TOP) as Transition)
                 binding.descExp.visibility = View.VISIBLE
             }
         }

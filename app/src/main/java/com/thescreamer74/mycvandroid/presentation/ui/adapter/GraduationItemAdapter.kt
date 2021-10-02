@@ -1,6 +1,9 @@
 package com.thescreamer74.mycvandroid.presentation.ui.adapter
 
+import android.transition.Slide
+import android.transition.Transition
 import android.transition.TransitionManager
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,11 +36,10 @@ class GraduationItemAdapter(private val onClickListener: OnClickListener) : List
         fun showOrHideDesc() {
             if(binding.descGraduation.isVisible) {
                 binding.imageView.setImageResource(R.drawable.ic_arrow_right)
-                TransitionManager.beginDelayedTransition(binding.containerDesc)
                 binding.descGraduation.visibility = View.GONE
             } else {
                 binding.imageView.setImageResource(R.drawable.ic_arrow_down)
-                TransitionManager.beginDelayedTransition(binding.containerDesc)
+                TransitionManager.beginDelayedTransition(binding.containerDesc, Slide(Gravity.TOP) as Transition)
                 binding.descGraduation.visibility = View.VISIBLE
             }
         }
