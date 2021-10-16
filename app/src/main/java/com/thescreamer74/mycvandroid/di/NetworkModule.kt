@@ -28,11 +28,10 @@ val clientModule = module {
     }
 }
 
-
 val networkModule = module {
     single {
         Retrofit.Builder()
-            .baseUrl("http://192.168.43.203:8080") //192.168.1.112
+            .baseUrl("https://hidden-oasis-61952.herokuapp.com") //192.168.1.112 //192.168.1.20 //192.168.43.203:8080
             .addConverterFactory(GsonConverterFactory.create())
             .client(this.get())
             .build()

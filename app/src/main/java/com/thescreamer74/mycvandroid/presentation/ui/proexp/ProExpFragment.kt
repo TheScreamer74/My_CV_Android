@@ -11,8 +11,10 @@ import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.ProExpFragmentBinding
 import com.thescreamer74.mycvandroid.presentation.ui.adapter.ExperienceItemAdapter
 import org.koin.android.ext.android.inject
+import org.koin.core.component.KoinApiExtension
 import org.koin.core.parameter.parametersOf
 
+@KoinApiExtension
 class ProExpFragment : Fragment() {
     private val viewModel: ProExpViewModel by inject { parametersOf(this) }
     private lateinit var binding: ProExpFragmentBinding
@@ -29,6 +31,8 @@ class ProExpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.title = resources.getString(R.string.pro_exp)
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel

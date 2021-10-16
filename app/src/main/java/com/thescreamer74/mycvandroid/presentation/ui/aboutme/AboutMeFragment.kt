@@ -38,6 +38,8 @@ class AboutMeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.title = resources.getString(R.string.about_me)
+
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 

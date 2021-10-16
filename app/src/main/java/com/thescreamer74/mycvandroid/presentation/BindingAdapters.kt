@@ -9,6 +9,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.size.Scale
+import coil.transform.CircleCropTransformation
 import com.thescreamer74.mycvandroid.model.ExperienceUIModel
 import com.thescreamer74.mycvandroid.model.PersonalUIModel
 import com.thescreamer74.mycvandroid.presentation.ui.adapter.ExperienceItemAdapter
@@ -23,6 +24,19 @@ fun ImageView.bindImage(image: String?) {
         this.load("$parsedImageUrl") {
             placeholder(R.drawable.ic_image_placeholder)
             scale(Scale.FILL)
+            Log.d("API IMAGE", parsedImageUrl.toString())
+        }
+    }
+}
+
+@BindingAdapter("imageProfile")
+fun ImageView.bindImageProfile(image: String?) {
+    image?.let { url ->
+        val parsedImageUrl = url.toUri().buildUpon().scheme("https").build()
+        this.load("$parsedImageUrl") {
+            placeholder(R.drawable.ic_image_placeholder)
+            scale(Scale.FILL)
+            transformations(CircleCropTransformation())
             Log.d("API IMAGE", parsedImageUrl.toString())
         }
     }
