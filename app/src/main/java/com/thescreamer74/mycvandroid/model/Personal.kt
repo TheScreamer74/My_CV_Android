@@ -43,10 +43,14 @@ sealed class PersonalUIModel {
         val name: String?,
         @SerializedName("surname")
         val surname: String?,
+        @SerializedName("photo")
+        val photo: String?,
         @SerializedName("phone")
         val phone: String?,
         @SerializedName("nationality")
         val nationality: String?,
+        @SerializedName("driving_licence")
+        val drivingLicence: String?,
         @SerializedName("address")
         val address: String?,
         @SerializedName("town")

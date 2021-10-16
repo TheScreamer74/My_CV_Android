@@ -22,7 +22,6 @@ class GraduationItemAdapter(private val onClickListener: OnClickListener) : List
         fun bind(graduation: GraduationUIModel) {
             when (graduation) {
                 is GraduationUIModel.Graduation -> {
-                    binding.graduation?.officeIcon
                     binding.graduation = graduation
                     binding.executePendingBindings()
                 }

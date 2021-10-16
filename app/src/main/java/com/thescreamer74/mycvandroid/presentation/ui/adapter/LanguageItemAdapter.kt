@@ -26,13 +26,13 @@ class LanguageItemAdapter (private val onClickListener: OnClickListener) : ListA
         }
 
         fun showOrHideDesc() {
-            if(binding.containerLangInfo.isVisible) {
+            if(binding.langLevel.isVisible) {
                 binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_right)
-                binding.containerLangInfo.visibility = View.GONE
+                binding.langLevel.visibility = View.GONE
             } else {
                 binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_down)
                 TransitionManager.beginDelayedTransition(binding.containerLangInfo, Slide(Gravity.TOP) as Transition)
-                binding.containerLangInfo.visibility = View.VISIBLE
+                binding.langLevel.visibility = View.VISIBLE
             }
         }
 

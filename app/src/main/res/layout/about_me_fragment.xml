@@ -31,8 +31,21 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        app:imageProfile="@{viewModel.personal.data.results.photo}"
+                        app:layout_constraintBottom_toBottomOf="@id/separator_personal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textview_title" />
+
                     <TextView
                         android:id="@+id/textview_title"
+                        style="@style/TextAppearance.AppCompat.Headline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -46,17 +59,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
                         android:text="@{viewModel.personal.data.results.name}"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textview_title" />
+                        app:layout_constraintBottom_toTopOf="@+id/textview_surname"
+                        app:layout_constraintStart_toEndOf="@id/imageView2"
+                        app:layout_constraintTop_toTopOf="@id/imageView2"
+                        app:layout_constraintVertical_chainStyle="packed" />
 
                     <TextView
                         android:id="@+id/textview_surname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.personal.data.results.surname}"
-                        app:layout_constraintStart_toStartOf="@+id/textview_name"
+                        app:layout_constraintBottom_toTopOf="@+id/textview_age"
+                        app:layout_constraintStart_toStartOf="@id/textview_name"
                         app:layout_constraintTop_toBottomOf="@+id/textview_name" />
 
                     <TextView
@@ -64,7 +79,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.personal.data.results.age}"
-                        app:layout_constraintStart_toStartOf="@+id/textview_surname"
+                        app:layout_constraintBottom_toTopOf="@+id/textview_nationality"
+                        app:layout_constraintStart_toStartOf="@id/textview_surname"
                         app:layout_constraintTop_toBottomOf="@+id/textview_surname" />
 
                     <TextView
@@ -72,8 +88,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@{viewModel.personal.data.results.nationality}"
-                        app:layout_constraintStart_toStartOf="@+id/textview_age"
+                        app:layout_constraintBottom_toBottomOf="@id/textview_driving_licence"
+                        app:layout_constraintStart_toStartOf="@id/textview_age"
                         app:layout_constraintTop_toBottomOf="@+id/textview_age" />
+                    <TextView
+                        android:id="@+id/textview_driving_licence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.personal.data.results.drivingLicence}"
+                        app:layout_constraintBottom_toBottomOf="@id/imageView2"
+                        app:layout_constraintStart_toStartOf="@id/textview_nationality"
+                        app:layout_constraintTop_toBottomOf="@+id/textview_nationality"/>
+
+                    <View
+                        android:id="@+id/separator_personal"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -93,7 +129,8 @@
                         android:text="Mes coordonées personnelles"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        style="@style/TextAppearance.AppCompat.Headline"/>
 
                     <TextView
                         android:id="@+id/textview_address"
@@ -117,9 +154,22 @@
                         android:id="@+id/textview_zipcode"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
                         android:text="@{viewModel.personal.data.results.zipCode}"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/textview_town"
                         app:layout_constraintTop_toBottomOf="@+id/textview_town" />
+
+                    <View
+                        android:id="@+id/separator_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -139,7 +189,8 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="16dp"
+                        style="@style/TextAppearance.AppCompat.Headline"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/language_list_recycler_view"
@@ -153,7 +204,20 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textview_language_title"
                         app:listLanguageData="@{viewModel.personal.data.results.languages}"
-                        tools:listitem="@layout/language_item_view_holder"/>
+                        tools:listitem="@layout/language_item_view_holder" />
+
+                    <View
+                        android:id="@+id/separator_language"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/language_list_recycler_view" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -173,7 +237,8 @@
                         android:text="Mes hobbies"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent"
+                        style="@style/TextAppearance.AppCompat.Headline"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_view_hobbies"
@@ -189,54 +254,102 @@
                         app:listHobbyData="@{viewModel.personal.data.results.hobbies}"
                         tools:listitem="@layout/hobbies_item_view_holder"/>
 
+                    <View
+                        android:id="@+id/separator_hobbies"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/recycler_view_hobbies" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <ImageView
-                    android:id="@+id/button_linkedin"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_marginStart="16dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fifth_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/call_me_button"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fourth_container"
-                    app:srcCompat="@drawable/ic_linkedin" />
+                    app:layout_constraintTop_toBottomOf="@id/fourth_container">
 
-                <ImageView
-                    android:id="@+id/button_github"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_marginStart="32dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintBottom_toBottomOf="@+id/call_me_button"
-                    app:layout_constraintStart_toEndOf="@+id/call_me_button"
-                    app:layout_constraintTop_toTopOf="@+id/call_me_button"
-                    app:srcCompat="@drawable/ic_github" />
+                    <TextView
+                        android:id="@+id/textview_links_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mes liens persos"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        style="@style/TextAppearance.AppCompat.Headline"/>
 
-                <ImageView
-                    android:id="@+id/call_me_button"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_marginStart="32dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:layout_constraintBottom_toBottomOf="@+id/button_linkedin"
-                    app:layout_constraintEnd_toStartOf="@+id/button_github"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/button_linkedin"
-                    app:layout_constraintTop_toTopOf="@+id/button_linkedin"
-                    app:srcCompat="@drawable/ic_phone"
-                    app:tint="@color/black" />
+                    <ImageView
+                        android:id="@+id/button_linkedin"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/call_me_button"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textview_links_title"
+                        app:srcCompat="@drawable/ic_linkedin" />
+
+                    <ImageView
+                        android:id="@+id/button_github"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginStart="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintBottom_toBottomOf="@+id/call_me_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/call_me_button"
+                        app:layout_constraintTop_toTopOf="@+id/call_me_button"
+                        app:srcCompat="@drawable/ic_github" />
+
+                    <ImageView
+                        android:id="@+id/call_me_button"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginStart="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintBottom_toBottomOf="@+id/button_linkedin"
+                        app:layout_constraintEnd_toStartOf="@+id/button_github"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/button_linkedin"
+                        app:layout_constraintTop_toTopOf="@+id/button_linkedin"
+                        app:srcCompat="@drawable/ic_phone"
+                        app:tint="@color/black" />
+
+                    <View
+                        android:id="@+id/separator_link"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/button_linkedin" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

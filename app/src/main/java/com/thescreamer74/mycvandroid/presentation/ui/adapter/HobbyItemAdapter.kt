@@ -27,13 +27,13 @@ class HobbyItemAdapter (private val onClickListener: OnClickListener) : ListAdap
         }
 
         fun showOrHideDesc() {
-            if(binding.containerHobbyInfo.isVisible) {
+            if(binding.hobbyLevel.isVisible) {
                 binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_right)
-                binding.containerHobbyInfo.visibility = View.GONE
+                binding.hobbyLevel.visibility = View.GONE
             } else {
                 binding.imgArrowDevelop.setImageResource(R.drawable.ic_arrow_down)
                 TransitionManager.beginDelayedTransition(binding.containerHobbyInfo, Slide(Gravity.TOP) as Transition)
-                binding.containerHobbyInfo.visibility = View.VISIBLE
+                binding.hobbyLevel.visibility = View.VISIBLE
             }
         }
 

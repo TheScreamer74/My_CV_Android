@@ -1,18 +1,23 @@
 package com.thescreamer74.mycvandroid.presentation.ui.main
 
 import android.Manifest
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.MainActivityBinding
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class MainActivity : AppCompatActivity() {
     private val MY_PERMISSION_REQUEST_CODE_CALL_PHONE = 555
+    private val viewModel: MainActivityViewModel by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +26,23 @@ class MainActivity : AppCompatActivity() {
 
         val navController = (supportFragmentManager.findFragmentById(R.id.main_fragment_container_view) as NavHostFragment).navController
         binding.mainBottomNavigationView.setupWithNavController(navController)
-
         checkPermissions()
+
+        if (!viewModel.isDialogComplete){
+            val builder = AlertDialog.Builder(this)
+                .setTitle("Bienvenue !")
+                .setMessage(resources.getString(R.string.lorem_ipsum))
+                .setPositiveButton(
+                    "J'ai compris"
+                ) { dialog, which ->
+                    dialog.dismiss()
+                    viewModel.isDialogComplete = true
+                }
+
+            val dialog = builder.create()
+            dialog.window?.attributes?.windowAnimations = R.style.DialogTheme
+            dialog.show()
+        }
 
     }
 
