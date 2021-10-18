@@ -28,6 +28,12 @@ ext {
 }
 
 android {
+
+    def cvPropertiesFile = rootProject.file("cv.properties")
+    def cvProperties = new Properties()
+    cvProperties.load(new FileInputStream(cvPropertiesFile))
+
+
     compileSdk 31
 
     android.buildFeatures.dataBinding = true
@@ -43,9 +49,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", 'CV_API_BASE_URL', "\"${cvProperties['apiUrl']}\"")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", 'CV_API_BASE_URL', "\"${cvProperties['apiUrl']}\"")
         }
     }
     compileOptions {
@@ -58,31 +70,30 @@ android {
     }
 }
 
-dependencies {
+    dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutine_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutine_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$kotlin_coroutine_version"
-    implementation "org.koin:koin-android:$koin_version"
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-    implementation "org.koin:koin-androidx-scope:$koin_version"
-    implementation "com.google.android.material:material:$android_material_version"
-    implementation "androidx.core:core-ktx:$androidx_core_version"
-    implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
-    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"
-    implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$androidx_navigation_version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-    implementation "io.coil-kt:coil:$coil_version"
-    testImplementation "junit:junit:$junit_version"
-    testImplementation "androidx.test.ext:junit:$androidx_test_ext_junit_version"
-    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_junit_version"
+        implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle_version"
+        implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+        implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutine_version"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutine_version"
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$kotlin_coroutine_version"
+        implementation "org.koin:koin-android:$koin_version"
+        implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+        implementation "org.koin:koin-androidx-scope:$koin_version"
+        implementation "com.google.android.material:material:$android_material_version"
+        implementation "androidx.core:core-ktx:$androidx_core_version"
+        implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
+        implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"
+        implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation_version"
+        implementation "androidx.navigation:navigation-ui-ktx:$androidx_navigation_version"
+        implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+        implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+        implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+        implementation "io.coil-kt:coil:$coil_version"
+        testImplementation "junit:junit:$junit_version"
+        testImplementation "androidx.test.ext:junit:$androidx_test_ext_junit_version"
+        androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext_junit_version"
 
-}
+    }

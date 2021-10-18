@@ -59,7 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="@{viewModel.personal.data.results.name}"
+                        android:text="@{@string/format_name(viewModel.personal.data.results.name)}"
                         app:layout_constraintBottom_toTopOf="@+id/textview_surname"
                         app:layout_constraintStart_toEndOf="@id/imageView2"
                         app:layout_constraintTop_toTopOf="@id/imageView2"
@@ -69,7 +69,7 @@
                         android:id="@+id/textview_surname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.personal.data.results.surname}"
+                        android:text="@{@string/format_surname(viewModel.personal.data.results.surname)}"
                         app:layout_constraintBottom_toTopOf="@+id/textview_age"
                         app:layout_constraintStart_toStartOf="@id/textview_name"
                         app:layout_constraintTop_toBottomOf="@+id/textview_name" />
@@ -78,7 +78,7 @@
                         android:id="@+id/textview_age"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.personal.data.results.age}"
+                        android:text="@{@string/format_age(viewModel.personal.data.results.age)}"
                         app:layout_constraintBottom_toTopOf="@+id/textview_nationality"
                         app:layout_constraintStart_toStartOf="@id/textview_surname"
                         app:layout_constraintTop_toBottomOf="@+id/textview_surname" />
@@ -87,7 +87,7 @@
                         android:id="@+id/textview_nationality"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.personal.data.results.nationality}"
+                        android:text="@{@string/format_nationality(viewModel.personal.data.results.nationality)}"
                         app:layout_constraintBottom_toBottomOf="@id/textview_driving_licence"
                         app:layout_constraintStart_toStartOf="@id/textview_age"
                         app:layout_constraintTop_toBottomOf="@+id/textview_age" />
@@ -95,7 +95,7 @@
                         android:id="@+id/textview_driving_licence"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.personal.data.results.drivingLicence}"
+                        android:text="@{@string/format_driving_licence(viewModel.personal.data.results.drivingLicence)}"
                         app:layout_constraintBottom_toBottomOf="@id/imageView2"
                         app:layout_constraintStart_toStartOf="@id/textview_nationality"
                         app:layout_constraintTop_toBottomOf="@+id/textview_nationality"/>
@@ -138,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
-                        android:text="@{viewModel.personal.data.results.address}"
+                        android:text="@{@string/format_address(viewModel.personal.data.results.address)}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textview_title_address" />
 
@@ -146,7 +146,7 @@
                         android:id="@+id/textview_town"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.personal.data.results.town}"
+                        android:text="@{@string/format_town(viewModel.personal.data.results.town)}"
                         app:layout_constraintStart_toStartOf="@+id/textview_address"
                         app:layout_constraintTop_toBottomOf="@+id/textview_address" />
 
@@ -155,7 +155,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="@{viewModel.personal.data.results.zipCode}"
+                        android:text="@{@string/format_zip_code(viewModel.personal.data.results.zipCode)}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/textview_town"
                         app:layout_constraintTop_toBottomOf="@+id/textview_town" />

@@ -6,9 +6,9 @@ import retrofit2.http.GET
 
 interface CvServerExperienceApi {
     companion object {
-        const val GET_GRADUATIONS_URL = "/experiences"
+        const val GET_EXPERIENCES_URL = "/experiences"
     }
 
-    @GET(GET_GRADUATIONS_URL)
+    @GET(GET_EXPERIENCES_URL)
     suspend fun getExperience(): Response<ResponseBody>
 }

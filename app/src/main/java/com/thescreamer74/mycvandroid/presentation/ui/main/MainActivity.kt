@@ -12,10 +12,14 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.MainActivityBinding
+import com.thescreamer74.mycvandroid.network.CvServerMotivationalApi
+import com.thescreamer74.mycvandroid.network.CvServerRetrofitInterface
 import org.koin.android.ext.android.inject
+import org.koin.core.component.KoinApiExtension
 import org.koin.core.parameter.parametersOf
 
-class MainActivity : AppCompatActivity() {
+@KoinApiExtension
+class MainActivity : AppCompatActivity(), CvServerRetrofitInterface {
     private val MY_PERMISSION_REQUEST_CODE_CALL_PHONE = 555
     private val viewModel: MainActivityViewModel by inject { parametersOf(this) }
 
@@ -28,25 +32,10 @@ class MainActivity : AppCompatActivity() {
         binding.mainBottomNavigationView.setupWithNavController(navController)
         checkPermissions()
 
-        if (!viewModel.isDialogComplete){
-            val builder = AlertDialog.Builder(this)
-                .setTitle("Bienvenue !")
-                .setMessage(resources.getString(R.string.lorem_ipsum))
-                .setPositiveButton(
-                    "J'ai compris"
-                ) { dialog, which ->
-                    dialog.dismiss()
-                    viewModel.isDialogComplete = true
-                }
-
-            val dialog = builder.create()
-            dialog.window?.attributes?.windowAnimations = R.style.DialogTheme
-            dialog.show()
-        }
-
+        viewModel.delegate = this
     }
 
-    fun checkPermissions(){
+    private fun checkPermissions(){
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) { // 23
 
             // Check if we have Call permission
@@ -61,6 +50,25 @@ class MainActivity : AppCompatActivity() {
                 )
                 return
             }
+        }
+    }
+
+    @KoinApiExtension
+    override fun onResult() {
+        if (!viewModel.isDialogComplete){
+            val builder = AlertDialog.Builder(this)
+                .setTitle("Bienvenue !")
+                .setMessage(viewModel.motivational.value?.motivational)
+                .setPositiveButton(
+                    "J'ai compris"
+                ) { dialog, which ->
+                    dialog.dismiss()
+                    viewModel.isDialogComplete = true
+                }
+
+            val dialog = builder.create()
+            dialog.window?.attributes?.windowAnimations = R.style.DialogTheme
+            dialog.show()
         }
     }
 }

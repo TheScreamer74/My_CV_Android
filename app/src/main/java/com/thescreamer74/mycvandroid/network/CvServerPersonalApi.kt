@@ -6,9 +6,9 @@ import retrofit2.http.GET
 
 interface CvServerPersonalApi {
     companion object {
-        const val GET_GRADUATIONS_URL = "/personal"
+        const val GET_PERSONAL_URL = "/personal"
     }
 
-    @GET(GET_GRADUATIONS_URL)
+    @GET(GET_PERSONAL_URL)
     suspend fun getPersonal(): Response<ResponseBody>
 }

@@ -2,6 +2,7 @@ package com.thescreamer74.mycvandroid.di
 
 import com.thescreamer74.mycvandroid.network.CvServerExperienceApi
 import com.thescreamer74.mycvandroid.network.CvServerGraduationApi
+import com.thescreamer74.mycvandroid.network.CvServerMotivationalApi
 import com.thescreamer74.mycvandroid.network.CvServerPersonalApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -41,4 +42,6 @@ val networkModule = module {
     factory { this.get<Retrofit>().create<CvServerExperienceApi>() }
 
     factory { this.get<Retrofit>().create<CvServerPersonalApi>() }
+
+    factory { this.get<Retrofit>().create<CvServerMotivationalApi>() }
 }
