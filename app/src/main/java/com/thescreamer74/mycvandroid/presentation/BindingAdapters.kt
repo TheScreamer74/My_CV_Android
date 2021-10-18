@@ -12,10 +12,7 @@ import coil.size.Scale
 import coil.transform.CircleCropTransformation
 import com.thescreamer74.mycvandroid.model.ExperienceUIModel
 import com.thescreamer74.mycvandroid.model.PersonalUIModel
-import com.thescreamer74.mycvandroid.presentation.ui.adapter.ExperienceItemAdapter
-import com.thescreamer74.mycvandroid.presentation.ui.adapter.GraduationItemAdapter
-import com.thescreamer74.mycvandroid.presentation.ui.adapter.HobbyItemAdapter
-import com.thescreamer74.mycvandroid.presentation.ui.adapter.LanguageItemAdapter
+import com.thescreamer74.mycvandroid.presentation.ui.adapter.*
 
 @BindingAdapter("image")
 fun ImageView.bindImage(image: String?) {
@@ -60,6 +57,12 @@ fun bindRecyclerViewLanguage(recyclerView: RecyclerView, data: Array<PersonalUIM
 @BindingAdapter("listHobbyData")
 fun bindRecyclerViewHobby(recyclerView: RecyclerView, data: Array<PersonalUIModel.Hobby>?){
     val adapter = recyclerView.adapter as HobbyItemAdapter
+    adapter.submitList(data?.toList())
+}
+
+@BindingAdapter("listSkillData")
+fun bindRecyclerViewSkill(recyclerView: RecyclerView, data: Array<GraduationUIModel.Skill>?){
+    val adapter = recyclerView.adapter as SkillItemAdapter
     adapter.submitList(data?.toList())
 }
 

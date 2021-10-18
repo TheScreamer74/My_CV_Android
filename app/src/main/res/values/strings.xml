@@ -12,4 +12,5 @@
     <string name="format_address">Adresse : %s</string>
     <string name="format_town">Ville : %s</string>
     <string name="format_zip_code">Code postal : %s</string>
+    <string name="my_skills">Mes compétences</string>
 </resources>

@@ -13,18 +13,45 @@
         android:layout_height="match_parent"
         tools:context=".presentation.ui.graduation.GraduationFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/graduation_list_recycler_view"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:listGraduationData="@{viewModel.graduations.data.results}"
-            tools:listitem="@layout/graduation_item_view_holder"/>
+            android:layout_height="match_parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/graduation_list_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:listGraduationData="@{viewModel.graduations.data.graduations}"
+                    tools:listitem="@layout/graduation_item_view_holder" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/TextAppearance.AppCompat.Headline"
+                    android:id="@+id/title_skills_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/my_skills"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/graduation_list_recycler_view" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/skills_recycler_view"
+                    listSkillData="@{viewModel.graduations.data.skills}"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/title_skills_text_view"
+                    tools:listitem="@layout/skills_item_view_holder" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

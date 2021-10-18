@@ -11,7 +11,19 @@ sealed class GraduationUIModel {
 
     data class Data (
         @SerializedName("graduations")
-        val results: Array<Graduation>
+        val graduations: Array<Graduation>,
+
+        @SerializedName("skills")
+        val skills: Array<Skill>
+    )
+
+    data class Skill(
+        @SerializedName("name")
+        var name: String?,
+        @SerializedName("level")
+        val level: Int?,
+        @SerializedName("icon")
+        val icon: String
     )
 
     data class Graduation(

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.thescreamer74.mycvandroid.R
 import com.thescreamer74.mycvandroid.databinding.GraduationFragmentBinding
 import com.thescreamer74.mycvandroid.presentation.ui.adapter.GraduationItemAdapter
+import com.thescreamer74.mycvandroid.presentation.ui.adapter.SkillItemAdapter
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinApiExtension
 import org.koin.core.parameter.parametersOf
@@ -39,7 +40,10 @@ class GraduationFragment : Fragment() {
 
         binding.graduationListRecyclerView.adapter = GraduationItemAdapter(GraduationItemAdapter.OnClickListener{
             Toast.makeText(this.context, "item $it", Toast.LENGTH_LONG).show()
+        })
 
+        binding.skillsRecyclerView.adapter = SkillItemAdapter(SkillItemAdapter.OnClickListener{
+            Toast.makeText(this.context, "item $it", Toast.LENGTH_LONG).show()
         })
 
     }

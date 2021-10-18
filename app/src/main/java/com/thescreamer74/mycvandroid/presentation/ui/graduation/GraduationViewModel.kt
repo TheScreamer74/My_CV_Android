@@ -39,7 +39,7 @@ class GraduationViewModel: ViewModel(), KoinComponent {
                     _graduations.value = withContext(Dispatchers.Default) {
                         Gson().fromJson(it.string(), GraduationUIModel.Result::class.java)
                     }!!
-                    Log.d("API RESULT", _graduations.value?.data?.results?.size.toString())
+                    Log.d("API RESULT", _graduations.value?.data?.graduations?.size.toString())
 
                 }
 

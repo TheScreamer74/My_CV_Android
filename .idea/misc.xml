@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20729166666666668" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/drawable/border.xml" value="0.20729166666666668" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.20729166666666668" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/drawable/ic_menu_person.xml" value="0.20729166666666668" />
@@ -18,7 +19,10 @@
         <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/layout/main_fragment.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/layout/pro_exp_fragment.xml" value="0.22" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/layout/pro_exp_item_view_holder.xml" value="0.33" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/layout/skills_item_view_holder.xml" value="0.291213768115942" />
         <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20729166666666668" />
+        <entry key="..\:/Users/thoma/AndroidStudioProjects/MyCVAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.20729166666666668" />
       </map>
     </option>
   </component>
