@@ -28,12 +28,6 @@ ext {
 }
 
 android {
-
-    def cvPropertiesFile = rootProject.file("cv.properties")
-    def cvProperties = new Properties()
-    cvProperties.load(new FileInputStream(cvPropertiesFile))
-
-
     compileSdk 31
 
     android.buildFeatures.dataBinding = true
@@ -52,12 +46,10 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", 'CV_API_BASE_URL', "\"${cvProperties['apiUrl']}\"")
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", 'CV_API_BASE_URL', "\"${cvProperties['apiUrl']}\"")
         }
     }
     compileOptions {
